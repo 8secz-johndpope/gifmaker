@@ -32,15 +32,26 @@ module.exports.gifmaker = async event => {
         // write file to disk
         writeFileSync(`/tmp/${record.s3.object.key}`, s3Object.Body);
         // convert to gif!
+        // https://gist.github.com/MichaelKreil/0dffd8e5062e2dcfb7ea
+        //ffmpeg -re -ignore_loop 0 -i image.gif -vf "scale=40:ih*40/iw, crop=40:16" -f rawvideo -vcodec rawvideo -sws_flags bilinear -pix_fmt rgb24 - > /dev/udp/matelight.cbrp3.c-base.org/1337
         spawnSync(
+        
             '/opt/ffmpeg/ffmpeg',
             [
                 '-i',
                 `/tmp/${record.s3.object.key}`,
-                '-fps=15',
+                '-ignore_loop',
+                '0',
+                '-r',
+                '2',
+                '-vf',
+                'scale=40:ih*40/iw, crop=40:16',
+                '-sws_flags',
+                'bilinear',
                 '-f',
                 'gif',
                 `/tmp/${record.s3.object.key}.gif`,
+                '-y',
             ],
             {stdio: 'inherit'}
         );

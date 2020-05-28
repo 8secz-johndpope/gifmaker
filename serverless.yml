@@ -15,12 +15,13 @@ provider:
 
 functions:
   gifmaker:
+    timeout: 60
     handler: handler.gifmaker
     events:
       - s3: 8seczgifmakerbucket
     layers:
       - {Ref: FfmpegLambdaLayer}
-
+          
 layers:
   ffmpeg:
     path: layer
