@@ -46,7 +46,7 @@ module.exports.gifmaker = async event => {
                 '-r',
                 '2',
                 '-vf',
-                'scale=.2',
+                'scale=9:16, crop=9:16',
                 '-sws_flags',
                 'bilinear',
                 '-f',
