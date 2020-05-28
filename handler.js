@@ -34,6 +34,7 @@ module.exports.gifmaker = async event => {
         // convert to gif!
         // https://gist.github.com/MichaelKreil/0dffd8e5062e2dcfb7ea
         //ffmpeg -re -ignore_loop 0 -i image.gif -vf "scale=40:ih*40/iw, crop=40:16" -f rawvideo -vcodec rawvideo -sws_flags bilinear -pix_fmt rgb24 - > /dev/udp/matelight.cbrp3.c-base.org/1337
+        // 9:16 -> 90:160
         spawnSync(
         
             '/opt/ffmpeg/ffmpeg',
@@ -45,7 +46,7 @@ module.exports.gifmaker = async event => {
                 '-r',
                 '2',
                 '-vf',
-                'scale=40:ih*40/iw, crop=40:16',
+                'scale=.2',
                 '-sws_flags',
                 'bilinear',
                 '-f',

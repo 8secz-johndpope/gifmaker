@@ -95,5 +95,5 @@ Run "serverless dashboard" to open the dashboard or visit https://dashboard.serv
  
  run
 ```shell
-serverless deploy function gifmaker
+serverless deploy function -f gifmaker
 ```
