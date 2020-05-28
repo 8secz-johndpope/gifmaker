@@ -60,3 +60,29 @@ serverless deploy
 # IMPORTANT - to remove use
 serverless remove --app gifmaker
 ```
+
+## Notes 
+```shell
+serverless info
+ Service Information
+service: gifmaker
+stage: dev
+region: us-east-1
+stack: gifmaker-dev
+resources: 11
+api keys:
+  None
+endpoints:
+  None
+functions:
+  gifmaker: gifmaker-dev-gifmaker
+layers:
+  ffmpeg: arn:aws:lambda:us-east-1:711304199600:layer:ffmpeg:4
+Run "serverless dashboard" to open the dashboard or visit https://dashboard.serverless.com/tenants/8seczjohndpope/applications/gifmaker/services/gifmaker/stage/dev/region/us-east-1
+ ````
+ to deploy only updates by handler.js
+ 
+ run
+```shell
+serverless deploy function gifmaker
+```
