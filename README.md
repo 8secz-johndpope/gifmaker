@@ -41,6 +41,7 @@ check timeout
             ]
 ```
 
+you will need to find / replace the bucket name - gifmakerbucket
 set the bucket in serverless.yaml
 ```json
 custom:
