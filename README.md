@@ -33,11 +33,22 @@ check timeout
 ```javascript
       '/opt/ffmpeg/ffmpeg',
             [
-                '-i',
+           '-i',
                 `/tmp/${record.s3.object.key}`,
+                '-ignore_loop',
+                '0',
+                '-r',
+                '2',
+                '-vf',
+                'scale=40:ih*40/iw, crop=40:16',
+                '-sws_flags',
+                'bilinear',
+                '-pix_fmt',
+                'rgb24',
                 '-f',
                 'gif',
                 `/tmp/${record.s3.object.key}.gif`,
+                '-y',
             ]
 ```
 
