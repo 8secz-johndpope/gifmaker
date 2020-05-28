@@ -56,4 +56,7 @@ serverless login
 # go into serverless.com -> click add app gifmaker
 serverless --org 8seczjohndpope --app gifmaker
 serverless deploy
+
+# IMPORTANT - to remove use
+serverless remove --app gifmaker
 ```
