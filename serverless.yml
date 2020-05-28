@@ -1,3 +1,5 @@
+org: 8seczjohndpope
+app: gifmaker
 
 service: gifmaker
 
@@ -15,7 +17,7 @@ functions:
   gifmaker:
     handler: handler.gifmaker
     events:
-      - s3: gifmakerbucket
+      - s3: 8seczgifmakerbucket
     layers:
       - {Ref: FfmpegLambdaLayer}
 
@@ -24,4 +26,4 @@ layers:
     path: layer
 
 custom:
-  bucket: gifmakerbucket
+  bucket: 8seczgifmakerbucket

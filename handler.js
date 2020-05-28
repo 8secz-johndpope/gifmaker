@@ -37,6 +37,7 @@ module.exports.gifmaker = async event => {
             [
                 '-i',
                 `/tmp/${record.s3.object.key}`,
+                '-fps=15',
                 '-f',
                 'gif',
                 `/tmp/${record.s3.object.key}.gif`,
